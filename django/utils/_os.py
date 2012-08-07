@@ -2,6 +2,7 @@ import os
 import stat
 from os.path import join, normcase, normpath, abspath, isabs, sep
 from django.utils.encoding import force_text
+from django.utils import six
 
 try:
     WindowsError = WindowsError
@@ -16,7 +17,8 @@ except NameError:
 # Windows version of abspath handles this correctly.  The Windows
 # abspath also handles drive letters differently than the pure
 # Python implementation, so it's best not to replace it.
-if os.name == 'nt':
+# This isn't necessary under Python 3 either.
+if os.name == 'nt' or six.PY3:
     abspathu = abspath
 else:
     def abspathu(path):
