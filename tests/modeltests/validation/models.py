@@ -96,11 +96,11 @@ class GenericIPAddrUnpackUniqueTest(models.Model):
 
 # A model can't have multiple AutoFields
 # Refs #12467.
-assertion_error = None
 try:
     class MultipleAutoFields(models.Model):
         auto1 = models.AutoField(primary_key=True)
         auto2 = models.AutoField(primary_key=True)
 except AssertionError as assertion_error:
-    pass # Fail silently
-assert str(assertion_error) == "A model can't have more than one AutoField."
+    assert str(assertion_error) == "A model can't have more than one AutoField."
+else:
+    assert False, "A model can't have more than one AutoField."
