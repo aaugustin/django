@@ -48,13 +48,6 @@ escaping.
 You should also be very careful when storing HTML in the database, especially
 when that HTML is retrieved and displayed.
 
-Markup library
---------------
-
-If you use :mod:`django.contrib.markup`, you need to ensure that the filters are
-only used on trusted input, or that you have correctly configured them to ensure
-they do not allow raw HTML output. See the documentation of that module for more
-information.
 
 Cross site request forgery (CSRF) protection
 ============================================
@@ -76,8 +69,8 @@ POST to your Web site and have another logged in user unwittingly submit that
 form. The malicious user would have to know the nonce, which is user specific
 (using a cookie).
 
-When deployed with :ref:`HTTPS <security-recommendation-ssl>`, 
-``CsrfViewMiddleware`` will check that the HTTP referer header is set to a 
+When deployed with :ref:`HTTPS <security-recommendation-ssl>`,
+``CsrfViewMiddleware`` will check that the HTTP referer header is set to a
 URL on the same origin (including subdomain and port). Because HTTPS
 provides additional security, it is imperative to ensure connections use HTTPS
 where it is available by forwarding insecure connection requests and using
