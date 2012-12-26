@@ -281,11 +281,6 @@ Manager functions
 
     .. method:: models.UserManager.create_user(username, email=None, password=None)
 
-        .. versionchanged:: 1.4
-           The ``email`` parameter was made optional. The username
-           parameter is now checked for emptiness and raises a
-           :exc:`ValueError` in case of a negative result.
-
         Creates, saves and returns a :class:`~django.contrib.auth.models.User`.
 
         The :attr:`~django.contrib.auth.models.User.username` and
@@ -377,10 +372,8 @@ section.
 How Django stores passwords
 ---------------------------
 
-.. versionadded:: 1.4
-   Django 1.4 introduces a new flexible password storage system and uses
-   PBKDF2 by default. Previous versions of Django used SHA1, and other
-   algorithms couldn't be chosen.
+Django features a flexible password storage system that uses PBKDF2 by
+default.
 
 The :attr:`~django.contrib.auth.models.User.password` attribute of a
 :class:`~django.contrib.auth.models.User` object is a string in this format::
@@ -804,14 +797,11 @@ Manually managing a user's password
 
 .. currentmodule:: django.contrib.auth.hashers
 
-.. versionadded:: 1.4
-    The :mod:`django.contrib.auth.hashers` module provides a set of functions
-    to create and validate hashed password. You can use them independently
-    from the ``User`` model.
+The :mod:`django.contrib.auth.hashers` module provides a set of functions to
+create and validate hashed password. You can use them independently from the
+``User`` model.
 
 .. function:: check_password(password, encoded)
-
-    .. versionadded:: 1.4
 
     If you'd like to manually authenticate a user by comparing a plain-text
     password to the hashed password in the database, use the convenience
@@ -821,8 +811,6 @@ Manually managing a user's password
     ``True`` if they match, ``False`` otherwise.
 
 .. function:: make_password(password[, salt, hashers])
-
-    .. versionadded:: 1.4
 
     Creates a hashed password in the format used by this application. It takes
     one mandatory argument: the password in plain-text. Optionally, you can
@@ -836,8 +824,6 @@ Manually managing a user's password
     accepted by :func:`django.contrib.auth.hashers.check_password`).
 
 .. function:: is_password_usable(encoded_password)
-
-   .. versionadded:: 1.4
 
    Checks if the given string is a hashed password that has a chance
    of being verified against :func:`django.contrib.auth.hashers.check_password`.
@@ -1111,9 +1097,8 @@ The login_required decorator
     .. _forms documentation: ../forms/
     .. _site framework docs: ../sites/
 
-    .. versionadded:: 1.4
 
-    The :func:`~views.login` view and the :ref:`other-built-in-views` now all
+    The :func:`~views.login` view and the :ref:`other-built-in-views` all
     return a :class:`~django.template.response.TemplateResponse` instance,
     which allows you to easily customize the response data before rendering.
     For more details, see the
@@ -1220,11 +1205,10 @@ includes a few other useful built-in views located in
     that can be used to reset the password, and sending that link to the
     user's registered email address.
 
-    .. versionchanged:: 1.4
-        Users flagged with an unusable password (see
-        :meth:`~django.contrib.auth.models.User.set_unusable_password()`
-        will not be able to request a password reset to prevent misuse
-        when using an external authentication source like LDAP.
+    Users flagged with an unusable password (see
+    :meth:`~django.contrib.auth.models.User.set_unusable_password()` will not
+    be able to request a password reset to prevent misuse when using an
+    external authentication source like LDAP.
 
     **URL name:** ``password_reset``
 
@@ -1241,8 +1225,6 @@ includes a few other useful built-in views located in
     * ``subject_template_name``: The full name of a template to use for
       the subject of the email with the reset password link. Defaults
       to :file:`registration/password_reset_subject.txt` if not supplied.
-
-      .. versionadded:: 1.4
 
     * ``password_reset_form``: Form that will be used to get the email of
       the user to reset the password for. Defaults to
@@ -1508,12 +1490,10 @@ The permission_required decorator
     As in the :func:`~decorators.login_required` decorator, ``login_url``
     defaults to :setting:`settings.LOGIN_URL <LOGIN_URL>`.
 
-    .. versionchanged:: 1.4
-
-    Added ``raise_exception`` parameter. If given, the decorator will raise
-    :exc:`~django.core.exceptions.PermissionDenied`, prompting
-    :ref:`the 403 (HTTP Forbidden) view<http_forbidden_view>` instead of
-    redirecting to the login page.
+    If the ``raise_exception`` parameter is given, the decorator will raise
+    :exc:`~django.core.exceptions.PermissionDenied`, prompting :ref:`the 403
+    (HTTP Forbidden) view<http_forbidden_view>` instead of redirecting to the
+    login page.
 
 .. currentmodule:: django.contrib.auth
 
