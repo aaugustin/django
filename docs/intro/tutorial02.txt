@@ -21,49 +21,11 @@ automatically-generated admin site.
     The admin isn't intended to be used by site visitors. It's for site
     managers.
 
-Activate the admin site
-=======================
-
-The Django admin site is not activated by default -- it's an opt-in thing. To
-activate the admin site for your installation, do these three things:
-
-* Uncomment ``"django.contrib.admin"`` in the :setting:`INSTALLED_APPS` setting.
-
-* Run ``python manage.py syncdb``. Since you have added a new application
-  to :setting:`INSTALLED_APPS`, the database tables need to be updated.
-
-* Edit your ``mysite/urls.py`` file and uncomment the lines that reference
-  the admin -- there are three lines in total to uncomment. This file is a
-  URLconf; we'll dig into URLconfs in the next tutorial. For now, all you
-  need to know is that it maps URL roots to applications. In the end, you
-  should have a ``urls.py`` file that looks like this:
-
-  .. parsed-literal::
-
-      from django.conf.urls import patterns, include, url
-
-      # Uncomment the next two lines to enable the admin:
-      **from django.contrib import admin**
-      **admin.autodiscover()**
-
-      urlpatterns = patterns('',
-          # Examples:
-          # url(r'^$', '{{ project_name }}.views.home', name='home'),
-          # url(r'^{{ project_name }}/', include('{{ project_name }}.foo.urls')),
-
-          # Uncomment the admin/doc line below to enable admin documentation:
-          # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-          # Uncomment the next line to enable the admin:
-          **url(r'^admin/', include(admin.site.urls)),**
-      )
-
-  (The bold lines are the ones that needed to be uncommented.)
-
 Start the development server
 ============================
 
-Let's start the development server and explore the admin site.
+The Django admin site is activated by default. Let's start the development
+server and explore it.
 
 Recall from Tutorial 1 that you start the development server like so:
 
