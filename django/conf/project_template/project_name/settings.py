@@ -1,4 +1,12 @@
-# Django settings for {{ project_name }} project.
+"""
+Django settings for {{ project_name }} project.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/{{ docs_version }}/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
+"""
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
