@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 
 DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
+TEMPLATE_DEBUG = True
 
 DATABASES = {
     'default': {
