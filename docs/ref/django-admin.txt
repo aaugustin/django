@@ -952,6 +952,7 @@ with the ``--name`` option. The :class:`template context
   options)
 - ``app_name`` -- the app name as passed to the command
 - ``app_directory`` -- the full path of the newly created app
+- ``docs_version`` -- the version of the documentation: ``'dev'`` or ``'1.x'``
 
 .. _render_warning:
 
@@ -1021,6 +1022,7 @@ with the ``--name`` option. The :class:`template context
 - ``project_name`` -- the project name as passed to the command
 - ``project_directory`` -- the full path of the newly created project
 - ``secret_key`` -- a random key for the :setting:`SECRET_KEY` setting
+- ``docs_version`` -- the version of the documentation: ``'dev'`` or ``'1.x'``
 
 Please also see the :ref:`rendering warning <render_warning>` as mentioned
 for :djadmin:`startapp`.
