@@ -8,6 +8,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+
 # Application settings
 
 INSTALLED_APPS = (
@@ -34,12 +39,12 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
-# Development settings
+# Development settings - unsuitable for production, read the documentation
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
