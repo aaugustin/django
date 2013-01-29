@@ -39,7 +39,7 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
-# Development settings - unsuitable for production, read the documentation
+# Quick-start development settings - unsuitable for production
 
 DATABASES = {
     'default': {
@@ -48,8 +48,12 @@ DATABASES = {
     }
 }
 
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# SECURITY WARNING: keep the secret key used in production secret!
+# Hardcoded values can leak through source control. Consider loading
+# the secret key from an environment variable or a file instead.
 SECRET_KEY = '{{ secret_key }}'
 
 TEMPLATE_DEBUG = True
