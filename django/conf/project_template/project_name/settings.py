@@ -8,12 +8,25 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/
 """
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
-# Application settings
+# Quick-start development settings - unsuitable for production
+
+# SECURITY WARNING: keep the secret key used in production secret!
+# Hardcoded values can leak through source control. Consider loading
+# the secret key from an environment variable or a file instead.
+SECRET_KEY = '{{ secret_key }}'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+TEMPLATE_DEBUG = True
+
+
+# Application definition
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -39,7 +52,8 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 
-# Quick-start development settings - unsuitable for production
+# Database
+# https://docs.djangoproject.com/en/{{ docs_version }}/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -47,17 +61,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# Hardcoded values can leak through source control. Consider loading
-# the secret key from an environment variable or a file instead.
-SECRET_KEY = '{{ secret_key }}'
-
-TEMPLATE_DEBUG = True
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/{{ docs_version }}/topics/i18n/
