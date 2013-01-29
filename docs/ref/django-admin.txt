@@ -921,6 +921,8 @@ For example::
 
     django-admin.py startapp myapp /Users/jezdez/Code/myapp
 
+.. _custom-app-and-project-templates:
+
 .. django-admin-option:: --template
 
 With the ``--template`` option, you can use a custom app template by providing
